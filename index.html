@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Pré-Processeur CSS: bonnes pratiques...et architecture!</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<!-- Slide -->
+				<section>
+					<h1>Pré-Processeur CSS</h1>
+					<p>
+						<span class="fragment">bonnes pratiques...</span>
+						<span class="fragment">et architecture!</span>
+					</p>
+				</section>
+				
+				<!-- Slide -->
+				<section>
+					<h1>Pourquoi</h1>
+					<ul>
+						<li  class="fragment">Fonctionnalités en plus</li>
+						<li class="fragment">Meilleur architecture</li>
+						<li class="fragment">Connaitres les bons coups...</li>
+						<li class="fragment">...et éviter les pièges!</li>
+					</ul>
+				</section>
+				
+				<!-- Slide -->
+				<section class="stack">
+					
+					<!-- Slide  stack -->
+					<section>
+						<h1>Fonctionnalités</h1>
+					</section>
+					<section>
+						<h2>Les variables!</h2>
+						<h4>Déclaration</h4>
+						<pre><code class="hljs" data-trim contenteditable>
+$primary-color: #E25D20;
+						</code></pre>
+						<div class="fragment">
+							<h4>Utilisation</h4>
+							<pre><code class="hljs" data-trim contenteditable>
+.un-selecteur {
+    color: $primary-color;
+}
+							</code></pre>
+					</section>
+					
+					<!-- Slide  stack -->
+					<section>
+						
+						<h2>Les mixins</h2>
+						<h4>Déclaration</h4>
+						<pre><code class="hljs" data-trim="contenteditable">
+// Snipet qui permet d'ajouter "..." à la fin d'une ligne
+@mixin truncate($width: 100%) {
+    display: block;
+    width: $width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+						</code></pre>
+						
+						<div class="fragment">
+							<h4>Utilisation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+// avec la largeur par défaut de 100%
+.un-selecteur {
+    @include truncate();
+}
+
+// avec une largeur différente
+.un-selecteur {
+    @include truncate(50%);
+}
+							</code></pre>
+						</div>
+					</section>
+					
+					<!-- Slide -->
+					<section>
+						
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				history: true,
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
