@@ -160,8 +160,8 @@ $white: #FFFFFF;
 						<pre><code class="hljs scss" data-trim="contenteditable">
 // /!\ à utiliser avec prudence /!\
 .parent {
-	.enfant {
-		cle: valeur;
+    .enfant {
+        cle: valeur;
 	}
 }
 						</code></pre>
@@ -169,7 +169,7 @@ $white: #FFFFFF;
 							<h4>Après Compilation</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
-	cle: valeur;
+    cle: valeur;
 }
 							</code></pre>
 						</div>
@@ -182,8 +182,8 @@ $white: #FFFFFF;
 						<pre><code class="hljs scss" data-trim="contenteditable">
 // /!\ à utiliser avec prudence /!\
 .enfant {
-	.parent & {
-		cle: valeur;
+    .parent & {
+        cle: valeur;
 	}
 }
 						</code></pre>
@@ -191,7 +191,7 @@ $white: #FFFFFF;
 							<h4>Après Compilation</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
-	cle: valeur;
+    cle: valeur;
 }
 							</code></pre>
 						</div>
@@ -204,8 +204,8 @@ $white: #FFFFFF;
 						<h4>Déclaration</h4>
 						<pre><code class="hljs scss" data-trim="contenteditable">
 .prefixe {
-	&-selecteur {
-		cle: valeur;
+    &-selecteur {
+        cle: valeur;
 	}
 }
 						</code></pre>
@@ -224,8 +224,8 @@ $white: #FFFFFF;
 						
 						<h2>Import & _Partial</h2>
 						<ul>
-							<li>Séparation de "concern"</li>
-							<li>Concatener => réduires requêtes http </li>
+							<li>Séparation d'intention</li>
+							<li>Concatener</li>
 						</ul>
 						<div class="fragment">
 							<h4>Déclaration</h4>
@@ -240,23 +240,23 @@ $white: #FFFFFF;
 					<section>
 						
 						<h2>Opération</h2>
-						<ul>
-							<li><strong>+</strong> <strong>-</strong> <strong>/</strong> <strong>*</strong> <strong>%</strong></li>
-							<li>Couleurs</li>
-						</ul>
+						<p><strong>+</strong> <strong>-</strong> <strong>/</strong> <strong>*</strong> <strong>%</strong></p>
 						<div class="fragment">
 							<h4>Déclaration</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 $height: 10px;
+
 .selecteur {
-	height: $height /2;
+    height: $height /2;
+    width: 10 + 10%;
 }
 							</code></pre>
 						<div class="fragment">
 							<h4>Compilation</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
-	height: 5px;
+    height: 5px;
+    width: 20%;
 }
 							</code></pre>
 						</div>
@@ -264,17 +264,183 @@ $height: 10px;
 					
 					<!-- Slide -->
 					<section>
-						<h1>Architecture</h1>
-					</section>
-					
-					<!-- Slide -->
-					<section>
+						<!-- Slide  stack -->
+						<section>
 						<h1>Bonnes pratiques</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Seulement .scss dans Git </h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Media query</h1>
+							<div class="fragment">
+								<h4>Déclaration</h4>
+								<pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
+
+    @media(max-width: 960px) {
+        width: 50%;
+    }
+}
+							</code></pre>
+						<div class="fragment">
+							<h4>Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
+}
+
+@media (max-width: 960px) {
+    .selecteur {
+        width: 50%;
+    }
+}
+							</code></pre>
+						</div>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Pseudo class</h1>
+							<div class="fragment">
+								<h4>Déclaration</h4>
+								<pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
+
+    &:hover {
+        cursor: pointer;
+	}
+}
+							</code></pre>
+						<div class="fragment">
+							<h4>Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
+}
+
+.selecteur:hover {
+    cursor: pointer;
+}
+							</code></pre>
+						</div>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Variables Couleurs</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Seulement des .scss dans Git </h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Séparer avec les _partials</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Même organisation qu'une classe C#</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>KISS!</h1>
+						</section>
+						
 					</section>
 					
 					<!-- Slide -->
 					<section>
 						<h1>Pièges</h1>
+												
+						<!-- Slide  stack -->
+						<section>
+							<h1>Préfixes comme dans la doc...</h1>
+						</section>
+												
+						<!-- Slide  stack -->
+						<section>
+							<h1>Extends...</h1>
+						</section>
+												
+						<!-- Slide  stack -->
+						<section>
+							<h1>Nesting!!!</h1>
+						</section>
+												
+						<!-- Slide  stack -->
+						<section>
+							<h1>Mixins trop complexe</h1>
+						</section>
+						
+					</section>
+										
+					<!-- Slide -->
+					<section>
+						<!-- Slide  stack -->
+						<section>
+							<h1>Architecture</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Par ordre de spécificité, ITCSS</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Variables</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Mixins</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Reset</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>HTML Tag</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Layout</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Composant</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Shame :'(</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Pattern mixin / Utility / @include</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Bootstrap partiels</h1>
+						</section>
 					</section>
 				</section>
 			</div>
