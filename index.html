@@ -50,19 +50,49 @@
 				<section>
 					<h1>Préprocésseurs actuel</h1>
 					<ul>
-						<li  class="fragment">Less...</li>
-						<li class="fragment">SASS</li>
-						<li class="fragment">POST CSS & module PreCSS</li>
+						<li  class="fragment">Less...l'ancêtre</li>
+						<li class="fragment">POST CSS (module PreCSS & cssnext)...le future</li>
+						<li class="fragment">SASS! Le présent</li>
 					</ul>
 				</section>
 								
 				<!-- Slide -->
 				<section>
-					<h1>SASS</h1>
-					<ul>
-						<li  class="fragment">Mature</li>
-						<li class="fragment">Bootstrap source</li>
-					</ul>
+					
+					<!-- Slide  stack -->
+					<section class="stack">
+						<h1>SASS</h1>
+						<ul>
+							<li  class="fragment">Mature</li>
+							<li class="fragment">Bootstrap
+								<ul>
+									<li  class="fragment">V3.0 &..V4.0!</li>
+									<li  class="fragment">Grilles & utilitaires</li>
+									<li  class="fragment">Équipes GSoft</li>
+								</ul>
+							</li>
+						</ul>
+					</section>
+					
+					<!-- Slide  stack -->
+					<section class="stack">
+						<h1>Subtilités</h1>
+						<ul>
+							<li class="fragment">2 syntaxes
+								<ul>
+									<li  class="fragment">SASS</li>
+									<li class="fragment">SCSS</li>
+								</ul>
+							</li>
+							</li>
+							<li  class="fragment">Plusieurs plateforme:
+								<ul>
+									<li  class="fragment">Ruby: version original</li>
+									<li class="fragment">gulp-sass: node-sass (JS et C++)</li>
+								</ul>
+							</li>							
+						</ul>
+					</section>
 				</section>
 				
 				<!-- Slide -->
@@ -75,12 +105,12 @@
 					<section>
 						<h2>Les variables!</h2>
 						<h4>Déclaration</h4>
-						<pre><code class="hljs" data-trim contenteditable>
+						<pre><code class="hljs scss" data-trim contenteditable>
 $primary-color: #E25D20;
 						</code></pre>
 						<div class="fragment">
 							<h4>Utilisation</h4>
-							<pre><code class="hljs" data-trim contenteditable>
+							<pre><code class="hljs scss" data-trim contenteditable>
 .un-selecteur {
     color: $primary-color;
 }
@@ -92,8 +122,9 @@ $primary-color: #E25D20;
 						
 						<h2>Les mixins</h2>
 						<h4>Déclaration</h4>
-						<pre><code class="hljs" data-trim="contenteditable">
-// Snipet qui permet d'ajouter "..." à la fin d'une ligne
+						<pre><code class="hljs scss" data-trim="contenteditable">
+// Limiter la taille d'une ligne et ajouter "..." à la fin
+// Paramètre $width optionnel
 @mixin truncate($width: 100%) {
     display: block;
     width: $width: 100%;
@@ -115,6 +146,66 @@ $primary-color: #E25D20;
 .un-selecteur {
     @include truncate(50%);
 }
+							</code></pre>
+						</div>
+					</section>
+					
+					<!-- Slide  stack -->
+					<section>
+						
+						<h2>Imbrication</h2>
+						<h4>Déclaration</h4>
+						<pre><code class="hljs scss" data-trim="contenteditable">
+// /!\ à utiliser avec prudence /!\
+.parent {
+	.enfant {
+		[...]
+	}
+}
+						</code></pre>
+						<div class="fragment">
+							<h4>Après Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.parent .enfant { 
+	[...]
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<!-- Slide  stack -->
+					<section>
+						
+						<h2>Préfixation</h2>
+						<h4>Déclaration</h4>
+						<pre><code class="hljs scss" data-trim="contenteditable">
+.prefixe {
+	&-selecteur {
+		[...]
+	}
+}
+						</code></pre>
+						<div class="fragment">
+							<h4>Après Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.prefixe-selecteur {
+    [...]
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<!-- Slide  stack -->
+					<section>
+						
+						<h2>Import</h2>
+						<h4>_Partial</h4>
+						<p>Divide to conquer!</p>
+						<p>Concatener VS requête http</p>
+						<div class="fragment">
+							<h4>Déclaration</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+@import "_un-fichier-diviser"
 							</code></pre>
 						</div>
 					</section>
