@@ -107,12 +107,14 @@
 						<h4>Déclaration</h4>
 						<pre><code class="hljs scss" data-trim contenteditable>
 $primary-color: #E25D20;
+$white: #FFFFFF;
 						</code></pre>
 						<div class="fragment">
 							<h4>Utilisation</h4>
 							<pre><code class="hljs scss" data-trim contenteditable>
 .un-selecteur {
     color: $primary-color;
+	background: $white;
 }
 							</code></pre>
 					</section>
@@ -159,7 +161,7 @@ $primary-color: #E25D20;
 // /!\ à utiliser avec prudence /!\
 .parent {
 	.enfant {
-		[...]
+		cle: valeur;
 	}
 }
 						</code></pre>
@@ -167,7 +169,29 @@ $primary-color: #E25D20;
 							<h4>Après Compilation</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
-	[...]
+	cle: valeur;
+}
+							</code></pre>
+						</div>
+					</section>
+
+					<!-- Slide  stack -->
+					<section>
+						<h2>"Débrication"</h2>
+						<h4>Déclaration</h4>
+						<pre><code class="hljs scss" data-trim="contenteditable">
+// /!\ à utiliser avec prudence /!\
+.enfant {
+	.parent & {
+		cle: valeur;
+	}
+}
+						</code></pre>
+						<div class="fragment">
+							<h4>Après Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.parent .enfant { 
+	cle: valeur;
 }
 							</code></pre>
 						</div>
@@ -181,7 +205,7 @@ $primary-color: #E25D20;
 						<pre><code class="hljs scss" data-trim="contenteditable">
 .prefixe {
 	&-selecteur {
-		[...]
+		cle: valeur;
 	}
 }
 						</code></pre>
@@ -189,7 +213,7 @@ $primary-color: #E25D20;
 							<h4>Après Compilation</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 .prefixe-selecteur {
-    [...]
+    cle: valeur;
 }
 							</code></pre>
 						</div>
@@ -198,14 +222,42 @@ $primary-color: #E25D20;
 					<!-- Slide  stack -->
 					<section>
 						
-						<h2>Import</h2>
-						<h4>_Partial</h4>
-						<p>Divide to conquer!</p>
-						<p>Concatener VS requête http</p>
+						<h2>Import & _Partial</h2>
+						<ul>
+							<li>Séparation de "concern"</li>
+							<li>Concatener => réduires requêtes http </li>
+						</ul>
 						<div class="fragment">
 							<h4>Déclaration</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
 @import "_un-fichier-diviser"
+@import "_un-autre-fichier-diviser"
+							</code></pre>
+						</div>
+					</section>
+
+					<!-- Slide  stack -->
+					<section>
+						
+						<h2>Opération</h2>
+						<ul>
+							<li><strong>+</strong> <strong>-</strong> <strong>/</strong> <strong>*</strong> <strong>%</strong></li>
+							<li>Couleurs</li>
+						</ul>
+						<div class="fragment">
+							<h4>Déclaration</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+$height: 10px;
+.selecteur {
+	height: $height /2;
+}
+							</code></pre>
+						<div class="fragment">
+							<h4>Compilation</h4>
+							<pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+	height: 5px;
+}
 							</code></pre>
 						</div>
 					</section>
