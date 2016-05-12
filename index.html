@@ -66,9 +66,9 @@
 							<li  class="fragment">Mature</li>
 							<li class="fragment">Bootstrap
 								<ul>
+									<li  class="fragment">Équipes GSOFT</li>
 									<li  class="fragment">V3.0 &..V4.0!</li>
 									<li  class="fragment">Grilles & utilitaires</li>
-									<li  class="fragment">Équipes GSoft</li>
 								</ul>
 							</li>
 						</ul>
@@ -230,8 +230,9 @@ $white: #FFFFFF;
 						<div class="fragment">
 							<h4>Déclaration</h4>
 							<pre><code class="hljs" data-trim="contenteditable">
-@import "_un-fichier-diviser"
-@import "_un-autre-fichier-diviser"
+@import "_header"
+@import "_menu"
+@import "_footer"
 							</code></pre>
 						</div>
 					</section>
@@ -305,7 +306,7 @@ $height: 10px;
 						</div>
 						</section>
 						
-						<!-- Slide  stack -->
+						<!-- Slide stack -->
 						<section>
 							<h1>Pseudo class</h1>
 							<div class="fragment">
@@ -340,11 +341,6 @@ $height: 10px;
 						
 						<!-- Slide  stack -->
 						<section>
-							<h1>Seulement des .scss dans Git </h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
 							<h1>Séparer avec les _partials</h1>
 						</section>
 						
@@ -370,11 +366,35 @@ $height: 10px;
 						<!-- Slide  stack -->
 						<section>
 							<h1>Préfixes comme dans la doc...</h1>
+						<div class="fragment">
+							<pre><code class="hljs" data-trim="contenteditable">
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+							</code></pre>
+						</div>
 						</section>
 												
 						<!-- Slide  stack -->
 						<section>
 							<h1>Extends...</h1>
+						<div class="fragment">
+							<pre><code class="hljs" data-trim="contenteditable">
+.message {
+    border: 1px solid #ccc;
+    padding: 10px;
+    color: #333;
+}
+
+.success {
+    @extend .message;
+    border-color: green;
+}
+							</code></pre>
+						</div>
 						</section>
 												
 						<!-- Slide  stack -->
@@ -399,6 +419,16 @@ $height: 10px;
 						<!-- Slide  stack -->
 						<section>
 							<h1>Par ordre de spécificité, ITCSS</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Bootstrap partiels</h1>
+						</section>
+						
+						<!-- Slide  stack -->
+						<section>
+							<h1>Module BEM</h1>
 						</section>
 						
 						<!-- Slide  stack -->
@@ -439,11 +469,6 @@ $height: 10px;
 						<!-- Slide  stack -->
 						<section>
 							<h1>Pattern mixin / Utility / @include</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Bootstrap partiels</h1>
 						</section>
 					</section>
 				</section>
