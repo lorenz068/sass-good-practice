@@ -38,18 +38,6 @@
 
             <!-- Slide -->
             <section>
-                <h1>Pourquoi</h1>
-                <ul>
-                    <li class="fragment">Fonctionnalités</li>
-                    <li class="fragment">Organiser son code</li>
-                    <li class="fragment">Bonnes pratiques...</li>
-                    <li class="fragment">...et pièges!</li>
-                </ul>
-            </section>
-
-
-            <!-- Slide -->
-            <section>
                 <h1>États des lieux</h1>
                 <ul>
                     <li class="fragment">Less...l'ancêtre</li>
@@ -68,8 +56,8 @@
                         <li class="fragment">Mature</li>
                         <li class="fragment">Bootstrap
                             <ul>
-                                <li class="fragment">Équipes GSOFT</li>
                                 <li class="fragment">V3.0 &..V4.0!</li>
+                                <li class="fragment">GSOFT</li>
                             </ul>
                         </li>
                     </ul>
@@ -116,7 +104,7 @@ $variable-globale: #FFF;
 }
                         </code></pre>
                     <div class="fragment">
-                        <h4>Utilisation</h4>
+                        <h4>Compilation</h4>
                         <pre><code class="hljs" data-trim contenteditable>
 .un-selecteur {
   color: #E25D20;
@@ -130,7 +118,7 @@ $variable-globale: #FFF;
 
                     <h2>Les mixins</h2>
                     <h4>Déclaration</h4>
-                    <pre><code class="hljs" data-trim="contenteditable">
+                    <pre><code class="hljs scss" data-trim="contenteditable">
 // Paramètre $width optionnel
 @mixin truncate($width: 100%) {
     display: block;
@@ -171,7 +159,7 @@ $variable-globale: #FFF;
 }
                         </code></pre>
                     <div class="fragment">
-                        <h4>    Compilation</h4>
+                        <h4>Compilation</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
     cle: valeur;
@@ -230,12 +218,12 @@ $variable-globale: #FFF;
                     <h2>Import & _Partial</h2>
                     <ul>
                         <li>Séparation d'intention</li>
-                        <li>Concatener</li>
-                    </ul>
+                        <li>Concatenation</li>
+                    </ul>   
                     <div class="fragment">
                         <h4>Déclaration</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
-@import "_header"
+@import "_variables"
 @import "_menu"
 @import "_footer"
                             </code></pre>
@@ -274,7 +262,7 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>Architecture</h1>
-                    <p>Comment organiser ses fichiers?</p>
+                    <img src="http://1.bp.blogspot.com/_Kh0CZuWd0T8/TNfYZQlR1rI/AAAAAAAAI70/_NogRq015WQ/s1600/architect+funny+motivational+poster+(1).jpg" />
                 </section>
 
                 <!-- Slide  stack -->
@@ -378,7 +366,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Object</h1>
+                    <h1>Object (utilities)</h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // --------------------------------------------------------------------------------- /
 //                           OBJECTS
@@ -399,7 +387,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Components</h1>
+                    <h1>Components (Module BEM)</h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // ------------------------------------------------------------------- /
 //                           COMPONENTS 
@@ -418,7 +406,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>TRUMPS (Shame) :'(</h1>
+                    <h1>TRUMPS :'(</h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // ----------------------------------------------------------------------------------------- /
 //                           TRUMPS 
@@ -432,11 +420,6 @@ $height: 10px;
 @import "App/Trumps/_shame";
                     </code></pre>
                 </section>
-
-                <!-- Slide  stack -->
-                <section>
-                    <h1>Pattern mixin / Utility / @include</h1>
-                </section>
             </section>
             
             
@@ -445,6 +428,7 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>Bonnes pratiques</h1>
+                    <img src="http://40.media.tumblr.com/tumblr_m5devfaqe21qzncogo1_540.png" />
                 </section>
 
                 <!-- Slide  stack -->
@@ -455,7 +439,6 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>Media query</h1>
-                    <div class="fragment">
                         <h4>Déclaration</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
@@ -482,52 +465,68 @@ $height: 10px;
                         </div>
                 </section>
 
-                <!-- Slide stack -->
-                <section>
-                    <h1>Pseudo class</h1>
-                    <div class="fragment">
-                        <h4>Déclaration</h4>
-                        <pre><code class="hljs" data-trim="contenteditable">
-.selecteur {
-    width: 100%;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-                            </code></pre>
-                        <div class="fragment">
-                            <h4>Compilation</h4>
-                            <pre><code class="hljs" data-trim="contenteditable">
-.selecteur {
-    width: 100%;
-}
-
-.selecteur:hover {
-    cursor: pointer;
-}
-                            </code></pre>
-                        </div>
-                </section>
-
                 <!-- Slide  stack -->
                 <section>
                     <h1>Variables Couleurs</h1>
+                    <pre><code class="hljs" data-trim="contenteditable">
+// Bright color Orange 
+$primary-color: #E25D20;
+// Dark Blue
+$secondary-color: #074255;
+// Light Blue
+$tertiary-color: #D7E6ED;
+
+// White
+$white: #FFF;
+// Black
+$white: #000;
+                    </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Séparer avec les _partials</h1>
+                    <h1>Séparer ses fichiers </h1>
+                    <p>Pour chaque viewmodel => .scss</p>
+                    <img src="http://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/02/1393307247whatif-meme-folder.jpg" />
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Même organisation qu'une classe C#</h1>
+                    <h1>Parallèle BEM / C#</h1>
+                    <pre><code class="hljs scss" data-trim="contenteditable">
+.classname {
+    $private-variable: 10px;
+
+    width: 100%;
+    
+    &__property {
+        height: $private-variable;
+    }
+    
+    &__properties {
+        display: block;
+    }
+}
+                </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>KISS!</h1>
+                    <h1>Pattern mixin / Utility / @include</h1>
+                        <pre><code class="hljs scss" data-trim="contenteditable">
+// Declaration code reutilisable
+@mixins truncate() {}
+
+// Utilisation dans une classe réutilisable
+.truncate {
+@include truncate();
+}
+
+// Utilisation dans une classe spécifique
+.component-bem {
+@include truncate();
+}
+                        </code></pre>
                 </section>
 
             </section>
@@ -537,6 +536,7 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>Pièges</h1>
+                    <img src="http://iruntheinternet.com/lulzdump/images/ackbar-its-a-mouse-trap-1272933634p.jpg" />
                 </section>
 
                 <!-- Slide  stack -->
@@ -551,7 +551,7 @@ $height: 10px;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
-                            </code></pre>
+                        </code></pre>
                     </div>
                 </section>
 
@@ -560,15 +560,21 @@ $height: 10px;
                     <h1>Extends...</h1>
                     <div class="fragment">
                         <pre><code class="hljs" data-trim="contenteditable">
-.message {
-    border: 1px solid #ccc;
-    padding: 10px;
-    color: #333;
-}
-
-.success {
-    @extend .message;
-    border-color: green;
+a.icon-listen-bl:hover,
+.event-related .box-title a:hover,
+.pagination a:focus,
+.news a:focus,
+.latest-tweet .date a:focus,
+.feature .box-header .title a:focus,
+.caption .title a:focus,
+.full-agenda-link a:focus,
+.article a:focus,
+.medialib-nav a:focus,
+.timeline-months a:focus,
+.Timeline .feature .box-footer a:focus,
+.latest-tweet .date a:focus,
+.medialib-nav a:focus, {
+    text-decoration: underline;
 }
                             </code></pre>
                     </div>
@@ -577,11 +583,29 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>Nesting!!!</h1>
+                        <pre><code class="hljs" data-trim="contenteditable">
+.selecteur1 {
+    .selecteur2 {
+        .selecteur3 {
+            .selecteur4 {
+                .selecteur5 {
+                    cle: valeur
+                }
+            }
+        }
+    }
+}
+                        </code></pre>
+                        <pre><code class="hljs" data-trim="contenteditable">
+.selecteur1 .selecteur2 .selecteur3 .selecteur4 .selecteur5 {
+    float: left;
+}
+                        </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Mixins trop complexe</h1>
+                    <h1>Mixins trop complexe, loop, if, etc...KISS please!</h1>
                 </section>
 
             </section>
