@@ -1,131 +1,136 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Pré-Processeur CSS: bonnes pratiques...et architecture!</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+    <title>Pré-Processeur CSS: bonnes pratiques...et architecture!</title>
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				
-				<!-- Slide -->
-				<section>
-					<h1>Pré-Processeur CSS</h1>
-					<p>
-						<span class="fragment">bonnes pratiques...</span>
-						<span class="fragment">et architecture!</span>
-					</p>
-				</section>
-				
-				<!-- Slide -->
-				<section>
-					<h1>Pourquoi</h1>
-					<ul>
-						<li  class="fragment">Fonctionnalités en plus</li>
-						<li class="fragment">Architecture</li>
-						<li class="fragment">Bonnes pratiques...</li>
-						<li class="fragment">...et pièges!</li>
-					</ul>
-				</section>
-				
-								
-				<!-- Slide -->
-				<section>
-					<h1>Préprocésseurs actuel</h1>
-					<ul>
-						<li  class="fragment">Less...l'ancêtre</li>
-						<li class="fragment">POST CSS (module PreCSS & cssnext)...le future</li>
-						<li class="fragment">SASS! Le présent</li>
-					</ul>
-				</section>
-								
-				<!-- Slide -->
-				<section>
-					
-					<!-- Slide  stack -->
-					<section class="stack">
-						<h1>SASS</h1>
-						<ul>
-							<li  class="fragment">Mature</li>
-							<li class="fragment">Bootstrap
-								<ul>
-									<li  class="fragment">Équipes GSOFT</li>
-									<li  class="fragment">V3.0 &..V4.0!</li>
-									<li  class="fragment">Grilles & utilitaires</li>
-								</ul>
-							</li>
-						</ul>
-					</section>
-					
-					<!-- Slide  stack -->
-					<section class="stack">
-						<h1>Subtilités</h1>
-						<ul>
-							<li class="fragment">2 syntaxes
-								<ul>
-									<li  class="fragment">SASS</li>
-									<li class="fragment">SCSS</li>
-								</ul>
-							</li>
-							</li>
-							<li  class="fragment">Plusieurs plateforme:
-								<ul>
-									<li  class="fragment">Ruby: version original</li>
-									<li class="fragment">gulp-sass: node-sass (JS et C++)</li>
-								</ul>
-							</li>							
-						</ul>
-					</section>
-				</section>
-				
-				<!-- Slide -->
-				<section class="stack">
-					
-					<!-- Slide  stack -->
-					<section>
-						<h1>Fonctionnalités</h1>
-					</section>
-					<section>
-						<h2>Les variables!</h2>
-						<h4>Déclaration</h4>
-						<pre><code class="hljs scss" data-trim contenteditable>
-$primary-color: #E25D20;
-$white: #FFFFFF;
-						</code></pre>
-						<div class="fragment">
-							<h4>Utilisation</h4>
-							<pre><code class="hljs scss" data-trim contenteditable>
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <!-- Slide -->
+            <section>
+                <h1>Pré-Processeur CSS</h1>
+                <p>
+                    <span class="fragment">Architecture...</span>
+                    <span class="fragment">et bonnes pratiques!</span>
+                </p>
+            </section>
+
+            <!-- Slide -->
+            <section>
+                <h1>Pourquoi</h1>
+                <ul>
+                    <li class="fragment">Fonctionnalités</li>
+                    <li class="fragment">Organiser son code</li>
+                    <li class="fragment">Bonnes pratiques...</li>
+                    <li class="fragment">...et pièges!</li>
+                </ul>
+            </section>
+
+
+            <!-- Slide -->
+            <section>
+                <h1>États des lieux</h1>
+                <ul>
+                    <li class="fragment">Less...l'ancêtre</li>
+                    <li class="fragment">POST CSS (module PreCSS & cssnext)...le future</li>
+                    <li class="fragment">SASS! Le présent</li>
+                </ul>
+            </section>
+
+            <!-- Slide -->
+            <section>
+
+                <!-- Slide  stack -->
+                <section class="stack">
+                    <h1>Pourquoi SASS?</h1>
+                    <ul>
+                        <li class="fragment">Mature</li>
+                        <li class="fragment">Bootstrap
+                            <ul>
+                                <li class="fragment">Équipes GSOFT</li>
+                                <li class="fragment">V3.0 &..V4.0!</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Slide  stack -->
+                <section class="stack">
+                    <h1>Subtilités</h1>
+                    <ul>
+                        <li class="fragment">2 syntaxes
+                            <ul>
+                                <li>SASS</li>
+                                <li>SCSS</li>
+                            </ul>
+                        </li>
+                        </li>
+                        <li class="fragment">Plusieurs plateforme:
+                            <ul>
+                                <li>Ruby: version original</li>
+                                <li>gulp-sass: node-sass (JS et C++)</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+
+            <!-- Slide -->
+            <section class="stack">
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Fonctionnalités</h1>
+                </section>
+                <section>
+                    <h2>Les variables!</h2>
+                    <h4>Déclaration</h4>
+                    <pre><code class="hljs" data-trim contenteditable>
+$variable-globale: #FFF;
+
 .un-selecteur {
-    color: $primary-color;
-	background: $white;
+    $variable-privee: #E25D20;
+    color: $variable-privee;
+    background: $variable-globale;
 }
-							</code></pre>
-					</section>
-					
-					<!-- Slide  stack -->
-					<section>
-						
-						<h2>Les mixins</h2>
-						<h4>Déclaration</h4>
-						<pre><code class="hljs scss" data-trim="contenteditable">
-// Limiter la taille d'une ligne et ajouter "..." à la fin
+                        </code></pre>
+                    <div class="fragment">
+                        <h4>Utilisation</h4>
+                        <pre><code class="hljs" data-trim contenteditable>
+.un-selecteur {
+  color: #E25D20;
+  background: #FFF;
+}
+                        </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+
+                    <h2>Les mixins</h2>
+                    <h4>Déclaration</h4>
+                    <pre><code class="hljs" data-trim="contenteditable">
 // Paramètre $width optionnel
 @mixin truncate($width: 100%) {
     display: block;
@@ -134,11 +139,11 @@ $white: #FFFFFF;
     overflow: hidden;
     text-overflow: ellipsis;
 }
-						</code></pre>
-						
-						<div class="fragment">
-							<h4>Utilisation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                        </code></pre>
+
+                    <div class="fragment">
+                        <h4>Utilisation</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 // avec la largeur par défaut de 100%
 .un-selecteur {
     @include truncate();
@@ -148,140 +153,311 @@ $white: #FFFFFF;
 .un-selecteur {
     @include truncate(50%);
 }
-							</code></pre>
-						</div>
-					</section>
-					
-					<!-- Slide  stack -->
-					<section>
-						
-						<h2>Imbrication</h2>
-						<h4>Déclaration</h4>
-						<pre><code class="hljs scss" data-trim="contenteditable">
+                            </code></pre>
+                    </div>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+
+                    <h2>Imbrication</h2>
+                    <h4>Déclaration</h4>
+                    <pre><code class="hljs" data-trim="contenteditable">
 // /!\ à utiliser avec prudence /!\
 .parent {
     .enfant {
         cle: valeur;
-	}
+    }
 }
-						</code></pre>
-						<div class="fragment">
-							<h4>Après Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                        </code></pre>
+                    <div class="fragment">
+                        <h4>    Compilation</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
     cle: valeur;
 }
-							</code></pre>
-						</div>
-					</section>
+                            </code></pre>
+                    </div>
+                </section>
 
-					<!-- Slide  stack -->
-					<section>
-						<h2>"Débrication"</h2>
-						<h4>Déclaration</h4>
-						<pre><code class="hljs scss" data-trim="contenteditable">
+                <!-- Slide  stack -->
+                <section>
+                    <h2>"Débrication"</h2>
+                    <h4>Déclaration</h4>
+                    <pre><code class="hljs" data-trim="contenteditable">
 // /!\ à utiliser avec prudence /!\
 .enfant {
     .parent & {
         cle: valeur;
-	}
+    }
 }
-						</code></pre>
-						<div class="fragment">
-							<h4>Après Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                        </code></pre>
+                    <div class="fragment">
+                        <h4>Après Compilation</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
     cle: valeur;
 }
-							</code></pre>
-						</div>
-					</section>
+                            </code></pre>
+                    </div>
+                </section>
 
-					<!-- Slide  stack -->
-					<section>
-						
-						<h2>Préfixation</h2>
-						<h4>Déclaration</h4>
-						<pre><code class="hljs scss" data-trim="contenteditable">
+                <!-- Slide  stack -->
+                <section>
+
+                    <h2>Préfixation</h2>
+                    <h4>Déclaration</h4>
+                    <pre><code class="hljs" data-trim="contenteditable">
 .prefixe {
     &-selecteur {
         cle: valeur;
-	}
+    }
 }
-						</code></pre>
-						<div class="fragment">
-							<h4>Après Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                        </code></pre>
+                    <div class="fragment">
+                        <h4>Après Compilation</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 .prefixe-selecteur {
     cle: valeur;
 }
-							</code></pre>
-						</div>
-					</section>
+                            </code></pre>
+                    </div>
+                </section>
 
-					<!-- Slide  stack -->
-					<section>
-						
-						<h2>Import & _Partial</h2>
-						<ul>
-							<li>Séparation d'intention</li>
-							<li>Concatener</li>
-						</ul>
-						<div class="fragment">
-							<h4>Déclaration</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                <!-- Slide  stack -->
+                <section>
+
+                    <h2>Import & _Partial</h2>
+                    <ul>
+                        <li>Séparation d'intention</li>
+                        <li>Concatener</li>
+                    </ul>
+                    <div class="fragment">
+                        <h4>Déclaration</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 @import "_header"
 @import "_menu"
 @import "_footer"
-							</code></pre>
-						</div>
-					</section>
+                            </code></pre>
+                    </div>
+                </section>
 
-					<!-- Slide  stack -->
-					<section>
-						
-						<h2>Opération</h2>
-						<p><strong>+</strong> <strong>-</strong> <strong>/</strong> <strong>*</strong> <strong>%</strong></p>
-						<div class="fragment">
-							<h4>Déclaration</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                <!-- Slide  stack -->
+                <section>
+
+                    <h2>Opération</h2>
+                    <p><strong>+</strong> <strong>-</strong> <strong>/</strong> <strong>*</strong> <strong>%</strong></p>
+                    <div class="fragment">
+                        <h4>Déclaration</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 $height: 10px;
 
 .selecteur {
     height: $height /2;
     width: 10 + 10%;
 }
-							</code></pre>
-						<div class="fragment">
-							<h4>Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        <div class="fragment">
+                            <h4>Compilation</h4>
+                            <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
     height: 5px;
     width: 20%;
 }
-							</code></pre>
-						</div>
-					</section>
-				</section>
-					
-					<!-- Slide -->
-					<section class="stack">
-						<!-- Slide  stack -->
-						<section>
-							<h1>Bonnes pratiques</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Seulement .scss dans Git </h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Media query</h1>
-							<div class="fragment">
-								<h4>Déclaration</h4>
-								<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        </div>
+                </section>
+            </section>
+
+            <!-- Slide -->
+            <section>
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Architecture</h1>
+                    <p>Comment organiser ses fichiers?</p>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Déclarer par spécificité (ITCSS)</h1>
+                    <img class="fragment" src="http://partleecloudy.com/Content/Making-CSSense/Content/Inverted-triangle-ITCSS.jpg" alt="">
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>7 couches</h1>
+                    <img class="fragment" src="http://media.creativebloq.futurecdn.net/sites/creativebloq.com/files/images/2015/10/itcssmain.jpg" alt="">
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Bootstrap</h1>
+                    <ul>
+                        <li>Seulement les modules utilisés</li>
+                        <li>Par spécificité</li>
+                        <li>Avant app pour overrides</li>
+                    </ul>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Settings (Variables)</h1>
+                            <pre><code class="hljs" data-trim="contenteditable">
+// ----------------------------------------------------------- /
+//                           SETTINGS
+// Global variables, site-wide settings, config switches, etc.
+// ----------------------------------------------------------- /
+
+// EXTERNAL
+// Variables to compile Bootstrap
+@import "External/bootstrap/_variables";
+
+// APP
+@import "App/Settings/_colors";
+@import "App/Settings/_length";
+@import "App/Settings/_text";
+@import "App/Settings/_branding";
+                            </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>TOOLS (Mixins)</h1>
+                        <pre><code class="hljs" data-trim="contenteditable">
+// ----------------------------------------------------------- /
+//                           TOOLS 
+// Site-wide mixins and functions
+// ----------------------------------------------------------- /
+
+// EXTERNAL
+// Mixins to compile Bootstrap
+@import "External/bootstrap/_mixins";
+
+// APP
+@import "App/Tools/_triangle";
+@import "App/Tools/_text";
+@import "App/Tools/_news-common";
+                        </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>GENERIC (Reset)</h1>
+                       <pre><code class="hljs" data-trim="contenteditable">
+// ----------------------------------------------------------- /
+//                           GENERIC 
+// Low-specificity, far-reaching rulesets (e.g. resets).
+// ----------------------------------------------------------- /
+
+// EXTERNAL
+// Soft reset to have similary style over all browsers
+@import "External/bootstrap/_normalize";
+@import "External/bootstrap/_print.scss";
+                    </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Base (Tag Html)</h1>
+                       <pre><code class="hljs" data-trim="contenteditable">
+// --------------------------------------------------------------- /
+//                           BASE 
+// HTML tag elements (e.g. a {}, p{}, blockquote {}, address {}).
+// --------------------------------------------------------------- /
+
+// EXTERNAL
+// Border-box + img class utilities
+@import "External/bootstrap/_scaffolding";
+// Defined default html element + typrographic + text class utilities
+@import "External/bootstrap/_type";
+
+// APP
+@import "App/Base/_elements";
+                    </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Object</h1>
+                       <pre><code class="hljs" data-trim="contenteditable">
+// --------------------------------------------------------------------------------- /
+//                           OBJECTS
+// Objects, abstractions, and design patterns, NO branding (e.g. .center {}, grid {}).
+// --------------------------------------------------------------------------------- /
+
+// EXTERNAL
+// Add the great grid 
+@import "External/bootstrap/_grid";
+
+// APP
+// Example of the BEM methodology;
+@import "App/Objects/_center";
+@import "App/Objects/_distribute";
+@import "App/Objects/_truncate.scss";
+                    </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Components</h1>
+                       <pre><code class="hljs" data-trim="contenteditable">
+// ------------------------------------------------------------------- /
+//                           COMPONENTS 
+// Discrete, complete chunks of UI (e.g. .header, .tiles .carousel {}).
+// ------------------------------------------------------------------- /
+
+// EXTERNAL
+
+// APP
+@import "App/Components/_button";
+@import "App/Components/_header";
+@import "App/Components/_footer";
+@import "App/Components/_breadcrumb";
+                    </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>TRUMPS (Shame) :'(</h1>
+                       <pre><code class="hljs" data-trim="contenteditable">
+// ----------------------------------------------------------------------------------------- /
+//                           TRUMPS 
+// High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
+// ----------------------------------------------------------------------------------------- /
+
+// EXTERNAL
+@import "External/bootstrap/_utilities";
+@import "External/bootstrap/_responsive-utilities";
+// APP
+@import "App/Trumps/_shame";
+                    </code></pre>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Pattern mixin / Utility / @include</h1>
+                </section>
+            </section>
+            
+            
+            <!-- Slide -->
+            <section class="stack">
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Bonnes pratiques</h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Seulement .scss dans Git </h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Media query</h1>
+                    <div class="fragment">
+                        <h4>Déclaration</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
     width: 100%;
 
@@ -289,10 +465,10 @@ $height: 10px;
         width: 50%;
     }
 }
-							</code></pre>
-						<div class="fragment">
-							<h4>Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        <div class="fragment">
+                            <h4>Compilation</h4>
+                            <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
     width: 100%;
 }
@@ -302,16 +478,16 @@ $height: 10px;
         width: 50%;
     }
 }
-							</code></pre>
-						</div>
-						</section>
-						
-						<!-- Slide stack -->
-						<section>
-							<h1>Pseudo class</h1>
-							<div class="fragment">
-								<h4>Déclaration</h4>
-								<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        </div>
+                </section>
+
+                <!-- Slide stack -->
+                <section>
+                    <h1>Pseudo class</h1>
+                    <div class="fragment">
+                        <h4>Déclaration</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
     width: 100%;
 
@@ -319,10 +495,10 @@ $height: 10px;
         cursor: pointer;
     }
 }
-							</code></pre>
-						<div class="fragment">
-							<h4>Compilation</h4>
-							<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        <div class="fragment">
+                            <h4>Compilation</h4>
+                            <pre><code class="hljs" data-trim="contenteditable">
 .selecteur {
     width: 100%;
 }
@@ -330,59 +506,60 @@ $height: 10px;
 .selecteur:hover {
     cursor: pointer;
 }
-							</code></pre>
-						</div>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Variables Couleurs</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Séparer avec les _partials</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Même organisation qu'une classe C#</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>KISS!</h1>
-						</section>
-						
-					</section>
-					
-					<!-- Slide -->
-					<section class="stack">
-						<!-- Slide  stack -->
-						<section>
-						<h1>Pièges</h1>
-						</section>
-												
-						<!-- Slide  stack -->
-						<section>
-							<h1>Préfixes comme dans la doc...</h1>
-						<div class="fragment">
-							<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                        </div>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Variables Couleurs</h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Séparer avec les _partials</h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Même organisation qu'une classe C#</h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>KISS!</h1>
+                </section>
+
+            </section>
+
+            <!-- Slide -->
+            <section class="stack">
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Pièges</h1>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Préfixes comme dans la doc...</h1>
+                    <div class="fragment">
+                        <pre><code class="hljs scss" data-trim="contenteditable">
+// No more!
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
       -ms-border-radius: $radius;
           border-radius: $radius;
 }
-							</code></pre>
-						</div>
-						</section>
-												
-						<!-- Slide  stack -->
-						<section>
-							<h1>Extends...</h1>
-						<div class="fragment">
-							<pre><code class="hljs" data-trim="contenteditable">
+                            </code></pre>
+                    </div>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Extends...</h1>
+                    <div class="fragment">
+                        <pre><code class="hljs" data-trim="contenteditable">
 .message {
     border: 1px solid #ccc;
     padding: 10px;
@@ -393,104 +570,46 @@ $height: 10px;
     @extend .message;
     border-color: green;
 }
-							</code></pre>
-						</div>
-						</section>
-												
-						<!-- Slide  stack -->
-						<section>
-							<h1>Nesting!!!</h1>
-						</section>
-												
-						<!-- Slide  stack -->
-						<section>
-							<h1>Mixins trop complexe</h1>
-						</section>
-						
-					</section>
-										
-					<!-- Slide -->
-					<section>
-						<!-- Slide  stack -->
-						<section>
-							<h1>Architecture</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Par ordre de spécificité, ITCSS</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Bootstrap partiels</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Module BEM</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Variables</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Mixins</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Reset</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>HTML Tag</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Layout</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Composant</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Shame :'(</h1>
-						</section>
-						
-						<!-- Slide  stack -->
-						<section>
-							<h1>Pattern mixin / Utility / @include</h1>
-						</section>
-					</section>
-				</section>
-			</div>
-		</div>
+                            </code></pre>
+                    </div>
+                </section>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Nesting!!!</h1>
+                </section>
 
-		<script>
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				history: true,
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Mixins trop complexe</h1>
+                </section>
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
-				]
-			});
-		</script>
-	</body>
+            </section>
+            
+            <section>
+                Merci :-}
+            </section>
+            
+            </div>
+            </div>
+
+            <script src="lib/js/head.min.js"></script>
+            <script src="js/reveal.js"></script>
+
+            <script>
+                // More info https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                history: true,
+
+                // More info https://github.com/hakimel/reveal.js#dependencies
+                dependencies: [
+                    { src: 'plugin/markdown/marked.js' },
+                    { src: 'plugin/markdown/markdown.js' },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ]
+            });
+            </script>
+</body>
+
 </html>
