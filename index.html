@@ -46,14 +46,14 @@
                 <section>
                     <h1>Choix</h1>
                     <ul>
-                        <li class="fragment">Less...l'ancêtre</li>
-                        <li class="fragment">POST CSS (module PreCSS & cssnext)...le future</li>
-                        <li class="fragment">SASS! Le présent</li>
-                        <li class="fragment">Mature</li>
+                        <li class="fragment">Doc & blog</li>
+                        <li class="fragment">Mixins</li>
+                        <li class="fragment">Fonctionnalités</li>
+                        <li class="fragment">Simplicité d'installation</li>
                         <li class="fragment">Bootstrap 3 & 4
                             <ul>
-                                <li class="fragment">variables & mixins</li>
-                                <li class="fragment">Experiences GSOFT</li>
+                                <li>GSOFT</li>
+                                <li>Variables & mixins</li>
                             </ul>
                         </li>
                     </ul>
@@ -70,12 +70,7 @@
                             </ul>
                         </li>
                         </li>
-                        <li class="fragment">Plusieurs plateforme:
-                            <ul>
-                                <li>Ruby: version original</li>
-                                <li>gulp-sass: node-sass (JS et C++)</li>
-                            </ul>
-                        </li>
+                        <li class="fragment">gulp-sass: node-sass (JS et C++)</li>
                     </ul>
                 </section>
             </section>
@@ -116,27 +111,27 @@ $variable-globale: #FFF;
                     <h2>Les mixins</h2>
                     <h4>Déclaration</h4>
                     <pre><code class="hljs scss" data-trim="contenteditable">
-// Paramètre $width optionnel
-@mixin truncate($width: 100%) {
+@mixin truncate($width: 100%) { // déclaration avec param. optionnel
     display: block;
-    width: $width: 100%;
+    width: $width;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.un-selecteur {
+    @include truncate(); // utilisation
+}
                         </code></pre>
 
                     <div class="fragment">
-                        <h4>Utilisation</h4>
+                        <h4>Compilation</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
-// avec la largeur par défaut de 100%
 .un-selecteur {
-    @include truncate();
-}
-
-// avec une largeur différente
-.un-selecteur {
-    @include truncate(50%);
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
                             </code></pre>
                     </div>
@@ -150,16 +145,22 @@ $variable-globale: #FFF;
                     <pre><code class="hljs" data-trim="contenteditable">
 // /!\ à utiliser avec prudence /!\
 .parent {
+    display: block;
+    
     .enfant {
-        cle: valeur;
+        display: inline;
     }
 }
                         </code></pre>
                     <div class="fragment">
                         <h4>Compilation</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
-.parent .enfant { 
-    cle: valeur;
+.parent {
+  display: block;
+}
+
+.parent .enfant {
+  display: inline;
 }
                             </code></pre>
                     </div>
@@ -170,10 +171,10 @@ $variable-globale: #FFF;
                     <h2>"Débrication"</h2>
                     <h4>Déclaration</h4>
                     <pre><code class="hljs" data-trim="contenteditable">
-// /!\ à utiliser avec prudence /!\
+// /!\ à utiliser avec prudence ET commentaires /!\
 .enfant {
     .parent & {
-        cle: valeur;
+        width: 100%;
     }
 }
                         </code></pre>
@@ -181,7 +182,7 @@ $variable-globale: #FFF;
                         <h4>Après Compilation</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
 .parent .enfant { 
-    cle: valeur;
+    width: 100%;
 }
                             </code></pre>
                     </div>
@@ -220,9 +221,10 @@ $variable-globale: #FFF;
                     <div class="fragment">
                         <h4>Déclaration</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
-@import "_variables"
+@import "_header"
 @import "_menu"
 @import "_footer"
+@import "_home"
                             </code></pre>
                     </div>
                 </section>
@@ -276,17 +278,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Bootstrap</h1>
-                    <ul>
-                        <li>Seulement les modules utilisés</li>
-                        <li>Par spécificité</li>
-                        <li>Avant app pour overrides</li>
-                    </ul>
-                </section>
-
-                <!-- Slide  stack -->
-                <section>
-                    <h1>Settings (Variables)</h1>
+                    <h1>1. Settings <span style="color: #999;">(Variables)</span></h1>
                             <pre><code class="hljs" data-trim="contenteditable">
 // ----------------------------------------------------------- /
 //                           SETTINGS
@@ -299,15 +291,14 @@ $height: 10px;
 
 // APP
 @import "App/Settings/_colors";
-@import "App/Settings/_length";
 @import "App/Settings/_text";
-@import "App/Settings/_branding";
+@import "App/Settings/_length";
                             </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>TOOLS (Mixins)</h1>
+                    <h1>2. TOOLS <span style="color: #999;">(Mixins)</span></h1>
                         <pre><code class="hljs" data-trim="contenteditable">
 // ----------------------------------------------------------- /
 //                           TOOLS 
@@ -327,7 +318,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>GENERIC (Reset)</h1>
+                    <h1>3. GENERIC <span style="color: #999;">(Reset)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // ----------------------------------------------------------- /
 //                           GENERIC 
@@ -343,7 +334,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Base (Tag Html)</h1>
+                    <h1>4. Base <span style="color: #999;">(Tag Html)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // --------------------------------------------------------------- /
 //                           BASE 
@@ -353,7 +344,7 @@ $height: 10px;
 // EXTERNAL
 // Border-box + img class utilities
 @import "External/bootstrap/_scaffolding";
-// Defined default html element + typrographic + text class utilities
+// Defined default html element + typographic + text class utilities
 @import "External/bootstrap/_type";
 
 // APP
@@ -363,7 +354,7 @@ $height: 10px;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Object (utilities)</h1>
+                    <h1>5. Object <span style="color: #999;">(Utilities)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // --------------------------------------------------------------------------------- /
 //                           OBJECTS
@@ -378,13 +369,13 @@ $height: 10px;
 // Example of the BEM methodology;
 @import "App/Objects/_center";
 @import "App/Objects/_distribute";
-@import "App/Objects/_truncate.scss";
+@import "App/Objects/_text.scss";
                     </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Components (Module BEM)</h1>
+                    <h1>6. Components <span style="color: #999;">(Module BEM)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // ------------------------------------------------------------------- /
 //                           COMPONENTS 
@@ -397,13 +388,13 @@ $height: 10px;
 @import "App/Components/_button";
 @import "App/Components/_header";
 @import "App/Components/_footer";
-@import "App/Components/_breadcrumb";
+@import "App/Components/_home";
                     </code></pre>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>TRUMPS :'(</h1>
+                    <h1>7. TRUMPS <span style="color: #999;">:'(</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
 // ----------------------------------------------------------------------------------------- /
 //                           TRUMPS 
@@ -416,6 +407,16 @@ $height: 10px;
 // APP
 @import "App/Trumps/_shame";
                     </code></pre>
+                </section>
+                
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Bootstrap</h1>
+                    <ul>
+                        <li>Seulement les modules utilisés</li>
+                        <li>Par spécificité</li>
+                        <li>Avant app pour overrides</li>
+                    </ul>
                 </section>
             </section>
             
@@ -476,7 +477,7 @@ $tertiary-color: #D7E6ED;
 // White
 $white: #FFF;
 // Black
-$white: #000;
+$black: #000;
                     </code></pre>
                 </section>
 
@@ -502,6 +503,7 @@ $white: #000;
     
     &__properties {
         display: block;
+        height: $private-variable;
     }
 }
                 </code></pre>
@@ -538,7 +540,8 @@ $white: #000;
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Préfixes comme dans la doc...</h1>
+                    <h1>Mixins de Préfixes</h1>
+                    <p>(comme dans la doc...)</p>
                     <div class="fragment">
                         <pre><code class="hljs scss" data-trim="contenteditable">
 // No more!
@@ -557,6 +560,7 @@ $white: #000;
                     <h1>Extends...</h1>
                     <div class="fragment">
                         <pre><code class="hljs" data-trim="contenteditable">
+// More and more selectors
 a.icon-listen-bl:hover,
 .event-related .box-title a:hover,
 .pagination a:focus,
@@ -581,28 +585,21 @@ a.icon-listen-bl:hover,
                 <section>
                     <h1>Nesting!!!</h1>
                         <pre><code class="hljs" data-trim="contenteditable">
-.selecteur1 {
-    .selecteur2 {
-        .selecteur3 {
-            .selecteur4 {
-                .selecteur5 {
-                    cle: valeur
-                }
-            }
-        }
-    }
-}
-                        </code></pre>
-                        <pre><code class="hljs" data-trim="contenteditable">
 .selecteur1 .selecteur2 .selecteur3 .selecteur4 .selecteur5 {
     float: left;
 }
                         </code></pre>
+                    <img src="http://s2.quickmeme.com/img/e7/e7633bedf897bb24ce668ac9c5df6bf88a58ff7e114d27606a756f4c4888a3f1.jpg"/>
                 </section>
 
                 <!-- Slide  stack -->
                 <section>
-                    <h1>Mixins trop complexe, loop, if, etc...KISS please!</h1>
+                    <h1>Complexité</h1>
+                    <ul>
+                        <li>If/else</li>
+                        <li>loop</li>
+                        <li>Mixins avec logiques</li>
+                    </ul>
                 </section>
 
             </section>
