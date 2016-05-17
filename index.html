@@ -184,12 +184,18 @@ $variable-globale: #FFF;
     &-selecteur {
         cle: valeur;
     }
+    &:hover {
+        cle: valeur;
+    }
 }
                         </code></pre>
                     <div class="fragment">
                         <h4>Après Compilation</h4>
                         <pre><code class="hljs" data-trim="contenteditable">
 .prefixe-selecteur {
+    cle: valeur;
+}
+.prefixe:hover {
     cle: valeur;
 }
                             </code></pre>
