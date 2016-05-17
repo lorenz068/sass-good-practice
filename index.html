@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>Pré-Processeur CSS: bonnes pratiques...et architecture!</title>
+    <title>Sass: architecture...et bonnes pratiques!</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css">
@@ -29,7 +29,7 @@
 
             <!-- Slide -->
             <section>
-                <h1>Pré-Processeur CSS</h1>
+                <h1>SASS</h1>
                 <p>
                     <span class="fragment">Architecture...</span>
                     <span class="fragment">et bonnes pratiques!</span>
@@ -40,11 +40,10 @@
 
                 <!-- Slide  stack -->
                 <section class="stack">
-                    <h1>SASS</h1>
                     <img height="550" src="https://01.img.society6.com/society6/img/N1n3NvS-SWiqQKOwZmITfg-Oyjw/w_700/artwork/~artwork/s6-0022/a/8775309_12725835/~~/sass-quatch-uzf-prints.jpg" />
                 </section>
                 <section>
-                    <h1>Choix</h1>
+                    <h1>Pourquoi SASS?</h1>
                     <ul>
                         <li class="fragment">Documentations</li>
                         <li class="fragment">Ressources</li>
@@ -262,6 +261,7 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>main.scss</h1>
+                    <p>Import par couches</p>
                     <img class="fragment" src="http://media.creativebloq.futurecdn.net/sites/creativebloq.com/files/images/2015/10/itcssmain.jpg" alt="">
                 </section>
 
@@ -289,10 +289,10 @@ $height: 10px;
                 <section>
                     <h1>2. TOOLS <span style="color: #999;">(Mixins)</span></h1>
                         <pre><code class="hljs" data-trim="contenteditable">
-// ----------------------------------------------------------- /
+// ------------------------------------------------------- /
 //                           TOOLS 
 // Site-wide mixins and functions
-// ----------------------------------------------------------- /
+// ------------------------------------------------------- /
 
 // EXTERNAL
 // Mixins to compile Bootstrap
@@ -309,10 +309,11 @@ $height: 10px;
                 <section>
                     <h1>3. GENERIC <span style="color: #999;">(Reset)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
-// ----------------------------------------------------------- /
+// ------------------------------------------------------- /
 //                           GENERIC 
-// Low-specificity, far-reaching rulesets (e.g. resets).
-// ----------------------------------------------------------- /
+// Low-specificity, far-reaching rulesets 
+// (e.g. resets).
+// ------------------------------------------------------- /
 
 // EXTERNAL
 // Soft reset to have similary style over all browsers
@@ -325,10 +326,11 @@ $height: 10px;
                 <section>
                     <h1>4. Base <span style="color: #999;">(Tag Html)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
-// --------------------------------------------------------------- /
+// ------------------------------------------------- /
 //                           BASE 
-// HTML tag elements (e.g. a {}, p{}, blockquote {}, address {}).
-// --------------------------------------------------------------- /
+// HTML tag elements 
+// Example: a {}, p{}, h1, h2, h3{} blockquote {},
+// ------------------------------------------------- /
 
 // EXTERNAL
 // Border-box + img class utilities
@@ -345,16 +347,18 @@ $height: 10px;
                 <section>
                     <h1>5. Object <span style="color: #999;">(Utilities)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
-// --------------------------------------------------------------------------------- /
+// ------------------------------------------------------- /
 //                           OBJECTS
-// Objects, abstractions, and design patterns, NO branding (e.g. .center {}, grid {}).
-// --------------------------------------------------------------------------------- /
+// Objects, abstractions, and design patterns, NO branding 
+// Example: .center {}, grid {}
+// ------------------------------------------------------- /
 
 // EXTERNAL
 // Add the great grid 
 @import "External/bootstrap/_grid";
 
 // APP
+@import "App/Objects/_bem.example";
 @import "App/Objects/_center";
 @import "App/Objects/_distribute";
 @import "App/Objects/_text.scss";
@@ -365,10 +369,11 @@ $height: 10px;
                 <section>
                     <h1>6. Components <span style="color: #999;">(Modules BEM)</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
-// ------------------------------------------------------------------- /
+// ------------------------------------------------------- /
 //                           COMPONENTS 
-// Discrete, complete chunks of UI (e.g. .header, .tiles .carousel {}).
-// ------------------------------------------------------------------- /
+// Discrete, complete chunks of UI 
+// Example: .header, .tiles .carousel {}
+// ------------------------------------------------------- /
 
 // EXTERNAL
 
@@ -384,14 +389,17 @@ $height: 10px;
                 <section>
                     <h1>7. TRUMPS <span style="color: #999;">:'(</span></h1>
                        <pre><code class="hljs" data-trim="contenteditable">
-// ----------------------------------------------------------------------------------------- /
+// ------------------------------------------------------- /
 //                           TRUMPS 
-// High-specificity, very explicit selectors. Overrides and helper classes (e.g. .hidden {}).
-// ----------------------------------------------------------------------------------------- /
+// High-specificity, very explicit selectors. 
+// Overrides and helper classes 
+// Example: .hidden {}
+// ------------------------------------------------------- /
 
 // EXTERNAL
 @import "External/bootstrap/_utilities";
 @import "External/bootstrap/_responsive-utilities";
+
 // APP
 @import "App/Trumps/_shame";
                     </code></pre>
@@ -420,11 +428,6 @@ $height: 10px;
                 <!-- Slide  stack -->
                 <section>
                     <h1>SASS <span style="color: #999;">||</span> SCSS?</h1>
-                </section>
-
-                <!-- Slide  stack -->
-                <section>
-                    <h1>Seulement .scss dans Git </h1>
                 </section>
 
                 <!-- Slide  stack -->
@@ -536,6 +539,12 @@ $black: #000;
                 <section>
                     <h1>Pièges</h1>
                     <img src="http://iruntheinternet.com/lulzdump/images/ackbar-its-a-mouse-trap-1272933634p.jpg" />
+                </section>
+
+
+                <!-- Slide  stack -->
+                <section>
+                    <h1>Ne pas mettre le CSS compilé dans Git</h1>
                 </section>
 
                 <!-- Slide  stack -->
