@@ -50,9 +50,9 @@
                         <li class="fragment">Fonctionnalités</li>
                         <li class="fragment">Simplicité d'installation</li>
                         <li class="fragment">Complémentaire à PostCSS</li>
-                        <li class="fragment">Bootstrap 3 & 4
+                        <li class="fragment">Bootstrap
                             <ul>
-                                <li>GSOFT</li>
+                                <li>V3 & V4</li>
                                 <li>Variables & mixins</li>
                             </ul>
                         </li>
@@ -204,7 +204,35 @@ $variable-globale: #FFF;
 
                 <!-- Slide  stack -->
                 <section>
+                    <h1>Media query</h1>
+                        <h4>Déclaration</h4>
+                        <pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
 
+    @media(max-width: 960px) {
+        width: 50%;
+    }
+}
+                            </code></pre>
+                        <div class="fragment">
+                            <h4>Compilation</h4>
+                            <pre><code class="hljs" data-trim="contenteditable">
+.selecteur {
+    width: 100%;
+}
+
+@media (max-width: 960px) {
+    .selecteur {
+        width: 50%;
+    }
+}
+                            </code></pre>
+                        </div>
+                </section>
+
+                <!-- Slide  stack -->
+                <section>
                     <h2>Import & _Partial</h2>
                     <p>Concaténation</p>
                     <div class="fragment">
@@ -424,40 +452,6 @@ $height: 10px;
                 <section>
                     <h1>Bonnes pratiques</h1>
                     <img height="550" src="http://40.media.tumblr.com/tumblr_m5devfaqe21qzncogo1_540.png" />
-                </section>
-
-                <!-- Slide  stack -->
-                <section>
-                    <h1>SASS <span style="color: #999;">||</span> SCSS?</h1>
-                </section>
-
-                <!-- Slide  stack -->
-                <section>
-                    <h1>Media query</h1>
-                        <h4>Déclaration</h4>
-                        <pre><code class="hljs" data-trim="contenteditable">
-.selecteur {
-    width: 100%;
-
-    @media(max-width: 960px) {
-        width: 50%;
-    }
-}
-                            </code></pre>
-                        <div class="fragment">
-                            <h4>Compilation</h4>
-                            <pre><code class="hljs" data-trim="contenteditable">
-.selecteur {
-    width: 100%;
-}
-
-@media (max-width: 960px) {
-    .selecteur {
-        width: 50%;
-    }
-}
-                            </code></pre>
-                        </div>
                 </section>
 
                 <!-- Slide  stack -->
